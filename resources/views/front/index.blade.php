@@ -95,41 +95,7 @@
         <div class="nav__container container">
             <ul class="nav__list">
                 <li class="nav__item nav__item--active">
-                    <a href="index.html">Home</a>
-                    <ul class="nav__list-submenu">
-                        <li class="nav__item-submenu">
-                            <a href="index-fullsize.html">Home Fullsize</a>
-                        </li>
-                        <li class="nav__item-submenu">
-                            <a href="index-grid.html">Home Grid</a>
-                            <ul class="nav__list-submenu">
-                                <li class="nav__item-submenu">
-                                    <a href="index-grid-fullsize.html">Home Grid Fullsize</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav__item-submenu">
-                            <a href="index-list.html">Home List</a>
-                            <ul class="nav__list-submenu">
-                                <li class="nav__item-submenu">
-                                    <a href="index-list-fullsize.html">Home List Fullsize</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav__item-submenu">
-                            <a href="404.html">404 Page</a>
-                        </li>
-                        <li class="nav__item-submenu">
-                            <a href="single-post.html">Single Post</a>
-                            <ul class="nav__list-submenu">
-                                <li class="nav__item-submenu">
-                                    <a href="single-post-fullsize.html"
-                                    >Single Post Fullsize</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <a href="#">Home</a>
                 </li>
 
             </ul>
@@ -153,7 +119,7 @@
     </div>
     <div class="col-md-12 header__logo">
         <div class="logo">
-            <h1><a class="logo__link" href="index.html">
+            <h1><a class="logo__link" href="#">
                     <img src="{{ asset('img/analytical_Toolkit.png') }}" alt="" class="img-fluid">
                 </a></h1>
             <div class="logo__description">By Afraz Ul Haque Rupak</div>
@@ -265,19 +231,19 @@
             {{-- ----------------------------- Posts block --------------------------- --}}
 
 
-{{--            <nav class="blog-pagination">--}}
-{{--                <ul class="blog-pagination__items">--}}
-{{--                    <li class="blog-pagination__item blog-pagination__item--active">--}}
-{{--                        <a>1</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="blog-pagination__item">--}}
-{{--                        <a href="#">2</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="blog-pagination__item">--}}
-{{--                        <a href="#">Next Page</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </nav>--}}
+            {{--            <nav class="blog-pagination">--}}
+            {{--                <ul class="blog-pagination__items">--}}
+            {{--                    <li class="blog-pagination__item blog-pagination__item--active">--}}
+            {{--                        <a>1</a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="blog-pagination__item">--}}
+            {{--                        <a href="#">2</a>--}}
+            {{--                    </li>--}}
+            {{--                    <li class="blog-pagination__item">--}}
+            {{--                        <a href="#">Next Page</a>--}}
+            {{--                    </li>--}}
+            {{--                </ul>--}}
+            {{--            </nav>--}}
 
             <div style="display: flex; justify-content: center">
                 {{ $blogs->links() }}
@@ -415,37 +381,37 @@
                 <p>Email: <a href="mailto:afrazulhaque865@gmail.com">afrazulhaque865@gmail.com</a></p>
             </div>
         </div>
-{{--        <div class="col-sm-3 col-md-3">--}}
-{{--            <h4>Categories</h4>--}}
-{{--            <nav class="footer__nav">--}}
-{{--                <ul class="footer__nav-items">--}}
-{{--                    <li class="footer__nav-item">--}}
-{{--                        <a href="category.html">Lifestyle</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="footer__nav-item">--}}
-{{--                        <a href="category.html">Journey</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="footer__nav-item">--}}
-{{--                        <a href="category.html">Inspiration</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </nav>--}}
-{{--        </div>--}}
+        {{--        <div class="col-sm-3 col-md-3">--}}
+        {{--            <h4>Categories</h4>--}}
+        {{--            <nav class="footer__nav">--}}
+        {{--                <ul class="footer__nav-items">--}}
+        {{--                    <li class="footer__nav-item">--}}
+        {{--                        <a href="category.html">Lifestyle</a>--}}
+        {{--                    </li>--}}
+        {{--                    <li class="footer__nav-item">--}}
+        {{--                        <a href="category.html">Journey</a>--}}
+        {{--                    </li>--}}
+        {{--                    <li class="footer__nav-item">--}}
+        {{--                        <a href="category.html">Inspiration</a>--}}
+        {{--                    </li>--}}
+        {{--                </ul>--}}
+        {{--            </nav>--}}
+        {{--        </div>--}}
         <div class="col-sm-4 col-md-4">
             <h4>Recent Posts</h4>
 
             @foreach($footer_blogs as $blog)
 
-            <div class="footer__recent-post">
-                <div class="footer__recent-post-info">
-                    <div class="footer__recent-post-content">
-                        <a href="#">{{ $blog->title }}</a>
-                    </div>
-                    <div class="footer__recent-post-date">
-                        <span>{{ $blog->created_at->format('d-M-Y') }}</span>
+                <div class="footer__recent-post">
+                    <div class="footer__recent-post-info">
+                        <div class="footer__recent-post-content">
+                            <a href="#">{{ $blog->title }}</a>
+                        </div>
+                        <div class="footer__recent-post-date">
+                            <span>{{ $blog->created_at->format('d-M-Y') }}</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
             @endforeach
 
