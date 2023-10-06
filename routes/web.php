@@ -23,7 +23,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // ------------------------------------------------------- public routes --------------------------------------------
 
-Route::get('/', [FrontController::class,'index']);
+Route::get('/', [FrontController::class, 'index']);
+Route::get('/view_blog/{id}', [FrontController::class, 'show'])->name('blog.single');
+Route::get('/blogs/', [FrontController::class, 'index']);
+Route::post('/blogs/', [FrontController::class, 'search'])->name('blog.search');
+Route::get('/about/', [FrontController::class, 'about'])->name('blog.about');
 
 // ------------------------------------------------------- public routes --------------------------------------------
 
@@ -39,7 +43,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     // --------------------------------------- Blog ---------------------------------------
 
 
-    Route::get('log_out', function (){
+    Route::get('log_out', function () {
         auth()->logout();
         return redirect('/');
     })->name('log_out');

@@ -8,6 +8,14 @@ body {
     background-color: #fcfcfc
 }
 
+.logo_shape {
+    width: 192px;
+}
+
+.logo_hidden_show{
+    display: none;
+}
+
 blockquote {
     position: relative;
     padding-left: 70px;
@@ -1595,6 +1603,22 @@ blockquote::before {
     .footer__bottom-social {
         text-align: left
     }
+}
+
+@media (max-width: 810px) {
+    .logo_shape{
+        width: 130px;
+    }
+
+    .logo_hidden_show{
+        display: block;
+    }
+
+    .logo_width{
+        width: 100%;
+    }
+
+
 }
 
 .content-overlay {
