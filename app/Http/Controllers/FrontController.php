@@ -9,7 +9,9 @@ class FrontController extends Controller
 {
     public function index()
     {
-        $blogs = Blog::orderBy('id','desc')->paginate(10);
-        return view("front.index", compact('blogs'));
+        $blogs = Blog::orderBy('id','desc')->paginate(14);
+        $recent_blogs = Blog::orderBy('id','desc')->take(4)->get();
+        $footer_blogs = Blog::orderBy('id','desc')->take(2)->get();
+        return view("front.index", compact('blogs', 'recent_blogs','footer_blogs'));
     }
 }

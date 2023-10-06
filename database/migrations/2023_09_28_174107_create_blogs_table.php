@@ -21,7 +21,7 @@ class CreateBlogsTable extends Migration
             $table->text('content');
             $table->string('tag');
             $table->string('user_id');
-            $table->integer('likes')->default(1);
+            $table->integer('likes')->default(0);
             $table->timestamps();
         });
     }

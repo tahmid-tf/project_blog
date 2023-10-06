@@ -37,6 +37,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::resource('blog', BlogController::class);
 
     // --------------------------------------- Blog ---------------------------------------
+
+
+    Route::get('log_out', function (){
+        auth()->logout();
+        return redirect('/');
+    })->name('log_out');
 });
 
 

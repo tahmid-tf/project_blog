@@ -170,7 +170,7 @@
 
                 <div class="post" style="padding: 10px">
                     <div class="" style="margin-bottom: -10px">
-                        Date : <span>{{ $blog->created_at->format('d-m-Y') }}</span>
+                        Date : <span>{{ $blog->created_at->format('d-M-Y') }}</span>
                     </div>
                     <div class="">
                         <h2>
@@ -306,7 +306,7 @@
                 <h3>Follow Me</h3>
                 <div class="sidebar-widget__follow-me">
                     <div class="sidebar-widget__follow-me-icons">
-                        <a href="#">
+                        <a href="https://www.facebook.com/afraz.rupak/">
                             <svg>
                                 <use
                                     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -316,7 +316,7 @@
                         </a>
 
 
-                        <a href="#">
+                        <a href="https://www.instagram.com/afraz.rupak/">
                             <svg>
                                 <use
                                     xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -335,81 +335,27 @@
             <div class="sidebar-widget">
                 <h3>Recent Posts</h3>
                 <div class="sidebar-widget__popular">
-                    <div class="sidebar-widget__popular-item">
-                        <div class="sidebar-widget__popular-item-image">
-                            <a href="single-post.html"
-                            ><img src="img/sidebar1.jpg" alt="New Flower in the Pot"
-                                /></a>
-                        </div>
-                        <div class="sidebar-widget__popular-item-info">
-                            <div class="sidebar-widget__popular-item-content">
-                                <a href="single-post.html">New Flower in the Pot</a>
+
+                    @foreach($recent_blogs as $blog)
+                        <div class="sidebar-widget__popular-item">
+                            <div class="sidebar-widget__popular-item-image">
+                                <a href="#"
+                                ><img src="{{ asset('storage/'.$blog->image) }}" alt=""
+                                    /></a>
                             </div>
-                            <div class="sidebar-widget__popular-item-date">
-                                <span>March 7, 2017</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget__popular-item">
-                        <div class="sidebar-widget__popular-item-image">
-                            <a href="single-post.html"
-                            ><img src="img/sidebar2.jpg" alt="Easy Walk in the Park"
-                                /></a>
-                        </div>
-                        <div class="sidebar-widget__popular-item-info">
-                            <div class="sidebar-widget__popular-item-content">
-                                <a href="single-post.html">Easy Walk in the Park</a>
-                            </div>
-                            <div class="sidebar-widget__popular-item-date">
-                                <span>March 1, 2017</span>
+                            <div class="sidebar-widget__popular-item-info">
+                                <div class="sidebar-widget__popular-item-content">
+                                    <a href="single-post.html">{{ $blog->title }}</a>
+                                </div>
+                                <div class="sidebar-widget__popular-item-date">
+                                    <span>{{ $blog->created_at->format('d-M-Y') }}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="sidebar-widget__popular-item">
-                        <div class="sidebar-widget__popular-item-image">
-                            <a href="single-post.html"
-                            ><img src="img/sidebar3.jpg" alt="The Bridge on the River"
-                                /></a>
-                        </div>
-                        <div class="sidebar-widget__popular-item-info">
-                            <div class="sidebar-widget__popular-item-content">
-                                <a href="single-post.html">The Bridge on the River</a>
-                            </div>
-                            <div class="sidebar-widget__popular-item-date">
-                                <span>February 10, 2017</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget__popular-item">
-                        <div class="sidebar-widget__popular-item-image">
-                            <a href="single-post.html"
-                            ><img src="img/sidebar4.jpg" alt="Best Cooking Lessons"
-                                /></a>
-                        </div>
-                        <div class="sidebar-widget__popular-item-info">
-                            <div class="sidebar-widget__popular-item-content">
-                                <a href="single-post.html">Best Cooking Lessons</a>
-                            </div>
-                            <div class="sidebar-widget__popular-item-date">
-                                <span>February 16, 2017</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget__popular-item">
-                        <div class="sidebar-widget__popular-item-image">
-                            <a href="single-post.html"
-                            ><img src="img/sidebar5.jpg" alt="My Favorite Drink"
-                                /></a>
-                        </div>
-                        <div class="sidebar-widget__popular-item-info">
-                            <div class="sidebar-widget__popular-item-content">
-                                <a href="single-post.html">My Favorite Drink</a>
-                            </div>
-                            <div class="sidebar-widget__popular-item-date">
-                                <span>February 7, 2017</span>
-                            </div>
-                        </div>
-                    </div>
+
+                    @endforeach
+
+
                 </div>
             </div>
             {{--            <div class="sidebar-widget">--}}
@@ -455,7 +401,7 @@
 </main>
 <footer class="footer">
     <div class="container footer__top">
-        <div class="col-sm-5 col-md-5">
+        <div class="col-sm-8 col-md-8">
             <div class="footer__top-about">
                 <h4>Analytical Toolkit</h4>
                 {{--                <p>--}}
@@ -469,44 +415,40 @@
                 <p>Email: <a href="mailto:afrazulhaque865@gmail.com">afrazulhaque865@gmail.com</a></p>
             </div>
         </div>
-        <div class="col-sm-3 col-md-3">
-            <h4>Categories</h4>
-            <nav class="footer__nav">
-                <ul class="footer__nav-items">
-                    <li class="footer__nav-item">
-                        <a href="category.html">Lifestyle</a>
-                    </li>
-                    <li class="footer__nav-item">
-                        <a href="category.html">Journey</a>
-                    </li>
-                    <li class="footer__nav-item">
-                        <a href="category.html">Inspiration</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+{{--        <div class="col-sm-3 col-md-3">--}}
+{{--            <h4>Categories</h4>--}}
+{{--            <nav class="footer__nav">--}}
+{{--                <ul class="footer__nav-items">--}}
+{{--                    <li class="footer__nav-item">--}}
+{{--                        <a href="category.html">Lifestyle</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="footer__nav-item">--}}
+{{--                        <a href="category.html">Journey</a>--}}
+{{--                    </li>--}}
+{{--                    <li class="footer__nav-item">--}}
+{{--                        <a href="category.html">Inspiration</a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </nav>--}}
+{{--        </div>--}}
         <div class="col-sm-4 col-md-4">
             <h4>Recent Posts</h4>
+
+            @foreach($footer_blogs as $blog)
+
             <div class="footer__recent-post">
                 <div class="footer__recent-post-info">
                     <div class="footer__recent-post-content">
-                        <a href="single-post.html">Very Kind and Beautiful Cat</a>
+                        <a href="#">{{ $blog->title }}</a>
                     </div>
                     <div class="footer__recent-post-date">
-                        <span>March 28, 2017</span>
+                        <span>{{ $blog->created_at->format('d-M-Y') }}</span>
                     </div>
                 </div>
             </div>
-            <div class="footer__recent-post">
-                <div class="footer__recent-post-info">
-                    <div class="footer__recent-post-content">
-                        <a href="single-post.html">Morning Cup of Coffee</a>
-                    </div>
-                    <div class="footer__recent-post-date">
-                        <span>March 20, 2017</span>
-                    </div>
-                </div>
-            </div>
+
+            @endforeach
+
         </div>
     </div>
     <div class="container footer__bottom">
@@ -514,7 +456,7 @@
             <p>2023 © All Right Reserved.</p>
         </div>
         <div class="col-sm-4 col-md-4 footer__bottom-social">
-            <a href="#">
+            <a href="https://www.facebook.com/afraz.rupak/">
                 <svg>
                     <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -522,31 +464,8 @@
                     ></use>
                 </svg>
             </a>
-            <a href="#">
-                <svg>
-                    <use
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="#icon-twitter"
-                    ></use>
-                </svg>
-            </a>
-            <a href="#">
-                <svg>
-                    <use
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="#icon-google"
-                    ></use>
-                </svg>
-            </a>
-            <a href="#">
-                <svg>
-                    <use
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        xlink:href="#icon-pinterest"
-                    ></use>
-                </svg>
-            </a>
-            <a href="#">
+
+            <a href="https://www.instagram.com/afraz.rupak/">
                 <svg>
                     <use
                         xmlns:xlink="http://www.w3.org/1999/xlink"
