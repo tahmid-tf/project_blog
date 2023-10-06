@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>Leopold. Home</title>
+    <title>Analytical Toolkit</title>
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}"/>
     <link
         href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700"
