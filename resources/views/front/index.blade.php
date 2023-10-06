@@ -168,7 +168,7 @@
 
             @foreach($blogs as $blog)
 
-                <div class="post">
+                <div class="post" style="padding: 10px">
                     <div class="" style="margin-bottom: -10px">
                         Date : <span>{{ $blog->created_at->format('d-m-Y') }}</span>
                     </div>
