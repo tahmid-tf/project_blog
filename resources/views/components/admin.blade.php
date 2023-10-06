@@ -8,8 +8,8 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Post Components:</h6>
-            <a class="collapse-item" href="">Create post</a>
-            <a class="collapse-item" href="">View Posts</a>
+            <a class="collapse-item" href="{{ route('blog.create') }}">Create post</a>
+            <a class="collapse-item" href="{{ route('blog.index') }}">View Posts</a>
         </div>
     </div>
 </li>

@@ -14,7 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('admin.blog.create');
+        $blogs = Blog::orderBy('id','desc')->get();
+        return view('admin.blog.view', compact('blogs'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.blog.create');
     }
 
     /**
@@ -50,7 +51,7 @@ class BlogController extends Controller
         auth()->user()->blogs()->create($inputs);
 
         session()->flash('create', 'Blog Created Successfully');
-        return redirect()->back();
+        return redirect()->route('blog.index');
     }
 
     /**
@@ -72,7 +73,7 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return view('admin.blog.update', compact('blog'));
     }
 
     /**
@@ -84,7 +85,23 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $inputs = \request()->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'description' => 'required',
+            'tag' => 'required',
+            'image' => 'mimes:jpeg,jpg,png,gif',
+        ]);
+
+        if (request('image')) {
+            $inputs['image'] = \request('image')->store('photos');
+        } else {
+            $inputs['image'] = $blog->image;
+        }
+
+        $blog->update($inputs);
+        session()->flash('update', 'Data Updated Successfully');
+        return back();
     }
 
     /**
@@ -95,6 +112,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        session('delete', 'Blog deleted successfully');
+        return back();
     }
 }

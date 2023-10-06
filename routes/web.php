@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// ------------------------------------------------------- public routes --------------------------------------------
+
+Route::get('/', [FrontController::class,'index']);
+
+// ------------------------------------------------------- public routes --------------------------------------------
 
 
 // ------------------------------------------------------------------ Admin Panel [ Admin ] --------------------------------------------
